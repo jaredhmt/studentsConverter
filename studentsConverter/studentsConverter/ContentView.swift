@@ -3,6 +3,7 @@
 //  studentsConverter
 //
 //  Created by Jared Hale on 12/13/20.
+//  Version History tracked with git.
 //
 
 import SwiftUI
@@ -22,8 +23,9 @@ struct ContentView: View {
                     Text("Input Value:")
                         .padding([.bottom, .trailing], 10)
                     TextField("Input", text: $userInput)
-                        .frame(width: 90.0)
+                        .frame(width: 60.0)
                         .font(.system(size: 30))
+                        .layoutPriority(/*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                 }
                 Picker(selection: .constant(1),
                        label: Text("Input Units")) {
@@ -40,7 +42,9 @@ struct ContentView: View {
                     Text("Ouput Value:")
                         .padding([.bottom, .trailing], 10)
                     Text(String(self.outputVal))
+                        .frame(width:60)
                         .font(.system(size: 30))
+                        .layoutPriority(1)
                 }
                 Picker(selection: .constant(1),
                        label: Text("Output Units")) {
@@ -70,7 +74,7 @@ struct ContentView: View {
             }
             .padding(.bottom, 80.0)
         }
-        
+        .padding(.horizontal)
         
 
     }
