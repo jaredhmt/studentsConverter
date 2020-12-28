@@ -8,7 +8,31 @@
 
 import SwiftUI
 
+
+struct converStruct {
+    var convFactor:Float = 0.0
+    init(_ a:Float) {
+        convFactor = a
+    }
+    func convert (_ inVal:Float, _ out:Bool = false) -> Float {
+        var output:Float = 0
+        if out {
+            output = inVal / convFactor
+        }
+        else {
+            output = inVal * convFactor
+        }
+        return output
+    }
+}
+
 struct ContentView: View {
+    
+    var mph2mps = converStruct(5280 * 12 * 2.54 / 3600 / 100)
+    var fps2mps = converStruct(12 * 2.54 / 100)
+    var mps2mps = converStruct(1)
+    var kmph2mps = converStruct(1000 / 3600)
+    var knot2mps = converStruct(1852 / 3600)
     
     @State var inputVal:Float = 0.0
     @State var outputVal:Float = 0.0
@@ -80,37 +104,37 @@ struct ContentView: View {
                 // convert input to m/s
                 let refIn = self.selectedUnits[0]
                 if refIn == 0 {
-                    self.baseVal = mph2mps(inVal: Float(userInput)!)
+                    self.baseVal = mph2mps.convert(Float(userInput)!)
                 }
                 else if refIn == 1 {
-                    self.baseVal = fps2mps(inVal: Float(userInput)!)
+                    self.baseVal = fps2mps.convert(Float(userInput)!)
                 }
                 else if refIn == 2 {
-                    self.baseVal = mps2mps(inVal: Float(userInput)!)
+                    self.baseVal = mps2mps.convert(Float(userInput)!)
                 }
                 else if refIn == 3 {
-                    self.baseVal = kmph2mps(inVal: Float(userInput)!)
+                    self.baseVal = kmph2mps.convert(Float(userInput)!)
                 }
                 else if refIn == 4 {
-                    self.baseVal = knot2mps(inVal: Float(userInput)!)
+                    self.baseVal = knot2mps.convert(Float(userInput)!)
                 }
                 
                 // convert m/s to output
                 let refOut = self.selectedUnits[1]
                 if refOut == 0 {
-                    self.outputVal = mph2mps(inVal: self.baseVal, out: true)
+                    self.outputVal = mph2mps.convert(self.baseVal,true)
                 }
                 else if refOut == 1 {
-                    self.outputVal = fps2mps(inVal: self.baseVal, out: true)
+                    self.outputVal = fps2mps.convert(self.baseVal,true)
                 }
                 else if refOut == 2 {
-                    self.outputVal = mps2mps(inVal: self.baseVal, out: true)
+                    self.outputVal = mps2mps.convert(self.baseVal,true)
                 }
                 else if refOut == 3 {
-                    self.outputVal = kmph2mps(inVal: self.baseVal, out: true)
+                    self.outputVal = kmph2mps.convert(self.baseVal,true)
                 }
                 else if refOut == 4 {
-                    self.outputVal = knot2mps(inVal: self.baseVal, out: true)
+                    self.outputVal = knot2mps.convert(self.baseVal,true)
                 }
                 
                 // TESTING NOTES i -> i+1 conversion works.
@@ -120,59 +144,11 @@ struct ContentView: View {
                     .font(.system(size: 60))
                     .fontWeight(.heavy)
             }
-            .padding(.bottom, 30.0)
+            .padding(.bottom, 50.0)
         }
         .padding(.horizontal)
         
 
-    }
-    
-    func mph2mps (inVal:Float, out:Bool = false) -> Float {
-        var output:Float = 0
-        let convFactor:Float = 5280 * 12 * 2.54 / 3600 / 100
-        if out {
-            output = inVal / convFactor
-        }
-        else {
-            output = inVal * convFactor
-        }
-        return output
-    }
-    func fps2mps (inVal:Float, out:Bool = false) -> Float {
-        var output:Float = 0
-        let convFactor:Float = 12 * 2.54 / 100
-        if out {
-            output = inVal / convFactor
-        }
-        else {
-            output = inVal * convFactor
-        }
-        return output
-    }
-    func mps2mps (inVal:Float, out:Bool = false) -> Float {
-        return inVal
-    }
-    func kmph2mps (inVal:Float, out:Bool = false) -> Float {
-        var output:Float = 0
-        let convFactor:Float = 1000 / 3600
-        if out {
-            output = inVal / convFactor
-        }
-        else {
-            output = inVal * convFactor
-        }
-        return output
-    }
-    func knot2mps (inVal:Float, out:Bool = false) -> Float {
-        var output:Float = 0
-        let convFactor:Float = 1852 / 3600
-        if out {
-            output = inVal / convFactor
-        }
-        else {
-            output = inVal * convFactor
-        }
-        return output
     }
 }
 
