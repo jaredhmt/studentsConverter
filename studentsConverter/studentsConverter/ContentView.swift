@@ -28,11 +28,11 @@ struct converStruct {
 
 struct ContentView: View {
     
-    var mph2mps = converStruct(5280 * 12 * 2.54 / 3600 / 100)
-    var fps2mps = converStruct(12 * 2.54 / 100)
-    var mps2mps = converStruct(1)
-    var kmph2mps = converStruct(1000 / 3600)
-    var knot2mps = converStruct(1852 / 3600)
+    let mph2mps = converStruct(5280 * 12 * 2.54 / 3600 / 100)
+    let fps2mps = converStruct(12 * 2.54 / 100)
+    let mps2mps = converStruct(1)
+    let kmph2mps = converStruct(1000 / 3600)
+    let knot2mps = converStruct(1852 / 3600)
     
     @State var inputVal:Float = 0.0
     @State var outputVal:Float = 0.0
@@ -46,28 +46,34 @@ struct ContentView: View {
             Text("Velocity")
                 .font(.system(size: 75))
                 .fontWeight(.black)
-                .padding(.top, 30)
-            Spacer()
+                .padding(.vertical, 30)
+                .onTapGesture {
+                    closeKeyboard()
+                }
             HStack {
                 VStack{
                     Text("Input Value:")
                         .padding([.bottom, .trailing], 10)
-                    TextField("Input", text: $userInput)
+                    TextField("Input", text: $userInput, onEditingChanged: {_ in
+                        performConv()
+                    })
                         .frame(width: 120,height: 30+20, alignment: .leading)
                         .font(.system(size: 30))
                         .layoutPriority(/*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
                         .background(Color(red: 0.66, green: 0.66, blue: 0.66, opacity: 0.14))
                         .cornerRadius(10)
                         .keyboardType(.decimalPad)
-                }
+                }//.padding(.trailing,1)
                 Picker(selection: $selectedUnits[0], label: Text("Input Units")) {
                     ForEach(0 ..< units.count) {
                                    Text(self.units[$0])
                                 }
                 }
-                .padding(.trailing,10)
                 .frame(width: 220)
                 .clipped()
+                .onChange(of: selectedUnits[0]) { _ in
+                    closeKeyboard()
+                }
             }
             .padding(.bottom, 20.0)
             HStack {
@@ -85,70 +91,58 @@ struct ContentView: View {
                                    Text(self.units[$0])
                                 }
                 }
-                .padding(.trailing,10)
                 .frame(width: 220)
                 .clipped()
-                
+                .onChange(of: selectedUnits[1]) { _ in closeKeyboard() }
             }
             Spacer()
-            Button(action: {
-                // check if units are converting to self
-                if self.selectedUnits[0] == self.selectedUnits[1] {
-                    if self.selectedUnits[1] == self.units.count {
-                        self.selectedUnits[1] = 0
-                    }
-                    else {
-                        self.selectedUnits[1] += 1
-                    }
-                }
-                // convert input to m/s
-                let refIn = self.selectedUnits[0]
-                if refIn == 0 {
-                    self.baseVal = mph2mps.convert(Float(userInput)!)
-                }
-                else if refIn == 1 {
-                    self.baseVal = fps2mps.convert(Float(userInput)!)
-                }
-                else if refIn == 2 {
-                    self.baseVal = mps2mps.convert(Float(userInput)!)
-                }
-                else if refIn == 3 {
-                    self.baseVal = kmph2mps.convert(Float(userInput)!)
-                }
-                else if refIn == 4 {
-                    self.baseVal = knot2mps.convert(Float(userInput)!)
-                }
-                
-                // convert m/s to output
-                let refOut = self.selectedUnits[1]
-                if refOut == 0 {
-                    self.outputVal = mph2mps.convert(self.baseVal,true)
-                }
-                else if refOut == 1 {
-                    self.outputVal = fps2mps.convert(self.baseVal,true)
-                }
-                else if refOut == 2 {
-                    self.outputVal = mps2mps.convert(self.baseVal,true)
-                }
-                else if refOut == 3 {
-                    self.outputVal = kmph2mps.convert(self.baseVal,true)
-                }
-                else if refOut == 4 {
-                    self.outputVal = knot2mps.convert(self.baseVal,true)
-                }
-                
-                // TESTING NOTES i -> i+1 conversion works.
-                // Update isn't always immediate.
-            }) {
-                Text("Convert")
-                    .font(.system(size: 60))
-                    .fontWeight(.heavy)
-            }
-            .padding(.bottom, 50.0)
         }
+        .onTapGesture {closeKeyboard()}
         .padding(.horizontal)
         
 
+    }
+    func closeKeyboard() {
+        UIApplication.shared.windows.forEach { $0.endEditing(true)}
+        performConv()
+    }
+    
+    func performConv() {
+            // convert input to m/s
+            let refIn = self.selectedUnits[0]
+            if refIn == 0 {
+                self.baseVal = mph2mps.convert(Float(userInput)!)
+            }
+            else if refIn == 1 {
+                self.baseVal = fps2mps.convert(Float(userInput)!)
+            }
+            else if refIn == 2 {
+                self.baseVal = mps2mps.convert(Float(userInput)!)
+            }
+            else if refIn == 3 {
+                self.baseVal = kmph2mps.convert(Float(userInput)!)
+            }
+            else if refIn == 4 {
+                self.baseVal = knot2mps.convert(Float(userInput)!)
+            }
+            
+            // convert m/s to output
+            let refOut = self.selectedUnits[1]
+            if refOut == 0 {
+                self.outputVal = mph2mps.convert(self.baseVal,true)
+            }
+            else if refOut == 1 {
+                self.outputVal = fps2mps.convert(self.baseVal,true)
+            }
+            else if refOut == 2 {
+                self.outputVal = mps2mps.convert(self.baseVal,true)
+            }
+            else if refOut == 3 {
+                self.outputVal = kmph2mps.convert(self.baseVal,true)
+            }
+            else if refOut == 4 {
+                self.outputVal = knot2mps.convert(self.baseVal,true)
+            }
     }
 }
 
