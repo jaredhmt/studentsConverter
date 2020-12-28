@@ -19,18 +19,22 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             Text("Velocity")
-                .font(.system(size: 45))
+                .font(.system(size: 75))
                 .fontWeight(.black)
+                .padding(.top, 30)
+            Spacer()
             HStack {
                 VStack{
                     Text("Input Value:")
                         .padding([.bottom, .trailing], 10)
                     TextField("Input", text: $userInput)
-                        .frame(width: 60.0)
+                        .frame(width: 120,height: 30+20, alignment: .leading)
                         .font(.system(size: 30))
                         .layoutPriority(/*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+                        .background(Color(red: 0.66, green: 0.66, blue: 0.66, opacity: 0.14))
+                        .cornerRadius(10)
+                        .keyboardType(.decimalPad)
                 }
                 Picker(selection: $selectedUnits[0], label: Text("Input Units")) {
                     ForEach(0 ..< units.count) {
@@ -38,17 +42,19 @@ struct ContentView: View {
                                 }
                 }
                 .padding(.trailing,10)
-                .fixedSize(horizontal: true, vertical: true)
+                .frame(width: 220)
+                .clipped()
             }
             .padding(.bottom, 20.0)
             HStack {
                 VStack{
                     Text("Ouput Value:")
                         .padding([.bottom, .trailing], 10)
-                    Text(String(self.outputVal))
-                        .frame(width:60)
+                    Text("\(self.outputVal, specifier: "%.3f")")
+                        .frame(width:120, alignment: .leading)
                         .font(.system(size: 30))
                         .layoutPriority(1)
+                        .lineLimit(1)
                 }
                 Picker(selection: $selectedUnits[1], label: Text("Input Units")) {
                     ForEach(0 ..< units.count) {
@@ -56,7 +62,8 @@ struct ContentView: View {
                                 }
                 }
                 .padding(.trailing,10)
-                .fixedSize(horizontal: true, vertical: true)
+                .frame(width: 220)
+                .clipped()
                 
             }
             Spacer()
@@ -108,22 +115,12 @@ struct ContentView: View {
                 
                 // TESTING NOTES i -> i+1 conversion works.
                 // Update isn't always immediate.
-                
-                // change this to be a function
-//                inputVal = Float(userInput)!
-//                let mph:Float = self.inputVal
-//                let fph:Float = mph * 5280
-//                let fps:Float = fph / 3600
-//                let ips:Float = fps * 12
-//                let cps:Float = ips * 2.54
-//                let mps:Float = cps / 100
-//                self.outputVal = mps
             }) {
                 Text("Convert")
-                    .font(.system(size: 40))
+                    .font(.system(size: 60))
                     .fontWeight(.heavy)
             }
-            .padding(.bottom, 80.0)
+            .padding(.bottom, 30.0)
         }
         .padding(.horizontal)
         
