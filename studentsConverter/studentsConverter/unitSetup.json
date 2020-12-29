@@ -1,68 +1,112 @@
-{
-    "velocity": {
+[
+    {
         "name": "Velocity",
         "iconSF": "hare",
         "base": "meters per second",
-        "units": {
-            "meters per second": {
+        "units": [
+            {"unit": "meters per second",
                 "enabled": true,
                 "convFactorStr": "1"
             },
-            "miles per hour": {
+            {"unit": "miles per hour",
                 "enabled": true,
                 "convFactorStr": "5280 * 12 * 2.54 / 3600 / 100"
             },
-            "feet per second": {
+            {"unit": "feet per second",
                 "enabled": true,
                 "convFactorStr": "12 * 2.54 / 100"
             },
-            "kilometers per hour": {
+            {"unit": "kilometers per hour",
                 "enabled": true,
                 "convFactorStr": "1000 / 3600"
             },
-            "knots": {
+            {"unit": "knots",
                 "enabled": true,
                 "convFactorStr": "1852 / 3600"
             }
-        }
+        ]
     },
-    "volume": {
+    {
         "name": "Volume",
         "iconSF": "shippingbox",
         "base": "meters cubed",
-        "units": {
-            "meters cubed": {
+        "units": [
+            {"unit": "meters cubed",
                 "enabled": true,
                 "convFactorStr": "1"
             },
-            "milimeters": {
+            {"unit": "milimeters",
                 "enabled": true,
                 "convFactorStr": "1 / 1000000"
             },
-            "cubic centimeters": {
+            {"unit": "cubic centimeters",
                 "enabled": true,
                 "convFactorStr": "1 / 1000000"
             },
-            "cubic feet": {
+            {"unit": "cubic feet",
                 "enabled": true,
                 "convFactorStr": "(12 * 2.54 / 100) * (12 * 2.54 / 100) * (12 * 2.54 / 100)"
             },
-            "US gallons": {
+            {"unit": "US gallons",
                 "enabled": true,
                 "convFactorStr": "231 * (2.54 / 100) * (2.54 / 100) * (2.54 / 100)"
             }
-        }
+        ]
     },
-    "custom": {
+    {
         "name": "Custom",
-        "iconSF": "square.and.pencil"
+        "iconSF": "square.and.pencil",
+        "base": "none",
+        "units": [
+          {"unit": "custom 1",
+            "enabled": true,
+            "convFactorStr": "1"
+          }
+        ]
     },
-    "mass": {
+    {
         "name": "Mass",
-        "iconSF": "scalemass"
+        "iconSF": "scalemass",
+        "base": "kilograms",
+        "units": [
+          {"unit": "kilograms",
+            "enabled": true,
+            "convFactorStr": "1"
+          },
+          {"unit": "slugs",
+            "enabled": true,
+            "convFactorStr": "2.3"
+          }
+        ]
     },
-    "pressure": {
+    {
         "name": "Pressure",
-        "iconSF": "gauge"
+        "iconSF": "gauge",
+        "base": "pascals",
+        "units": [
+          {"unit": "pascals",
+            "enabled": true,
+            "convFactorStr": "1"
+          },
+          {"unit": "kilopascals",
+            "enabled": true,
+            "convFactorStr": "1000"
+          }
+        ]
+    },
+    {
+        "name": "Area",
+        "iconSF": "rectangle",
+        "base": "square meters",
+        "units": [
+          {"unit": "square meters",
+            "enabled": true,
+            "convFactorStr": "1"
+          },
+          {"unit": "square feet",
+            "enabled": true,
+            "convFactorStr": "1000"
+          }
+        ]
     }
-}
+]

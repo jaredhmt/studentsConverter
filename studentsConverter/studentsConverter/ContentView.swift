@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 
 struct converStruct {
@@ -29,22 +30,24 @@ struct converStruct {
 struct ContentView: View {
     
     
+    let loadedData: [measureSystems] = Bundle.main.decode("unitSetup.json")
+    
     @State var selectedMeasure = 0
-    var measurements = ["hare","shippingbox","square.and.pencil","scalemass","gauge"]
-    var measureLabels = ["Velocity","Volume","Custom","Weight","Pressure"]
+//    var measurements = ["hare","shippingbox","square.and.pencil","scalemass","gauge"]
+//    var measureLabels = ["Velocity","Volume","Custom","Weight","Pressure"]
     var iconName:String {
-        measurements[selectedMeasure]
+        loadedData[selectedMeasure].iconSF
     }
     var titleLabel:String {
-        measureLabels[selectedMeasure]
+        loadedData[selectedMeasure].name
     }
     var body: some View {
         ZStack {
             VStack{
                 Spacer()
                 Picker(selection: $selectedMeasure, label: Text("Selected Measure")) {
-                    ForEach(0 ..< measurements.count) {
-                        Image(systemName: self.measurements[$0])
+                    ForEach(0 ..< loadedData.count) {
+                        Image(systemName: self.loadedData[$0].iconSF)
                         //Text(self.measureLabels[$0])
                     }
                 }
