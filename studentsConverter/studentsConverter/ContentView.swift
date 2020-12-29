@@ -38,19 +38,37 @@ struct ContentView: View {
     @State var outputVal:Float = 0.0
     @State var userInput:String = "0"
     @State var selectedUnits = [0, 1]
+    @State var selectedMeasure = 0
     @State var baseVal:Float = 0.0
     var units = ["miles per hour","feet per second","meters per second", "kilometers per hour","knots"]
-    
+    var measurements = ["hare","shippingbox","square.and.pencil","scalemass","gauge"]
+    var measureLabels = ["Velocity","Volume","Custom","Weight","Pressure"]
+    var iconName:String {
+        measurements[selectedMeasure]
+    }
+    var titleLabel:String {
+        measureLabels[selectedMeasure]
+    }
     var body: some View {
-        ZStack{
-            VStack {
+        ZStack {
+            VStack{
                 Spacer()
+                Picker(selection: $selectedMeasure, label: Text("Selected Measure")) {
+                    ForEach(0 ..< measurements.count) {
+                        Image(systemName: self.measurements[$0])
+                        //Text(self.measureLabels[$0])
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .font(.system(size:40))
+                .scaleEffect(CGSize(width: 1, height: 1.5))
+                .frame(height: 45)
             }
             VStack {
-                Image(systemName: "hare")
+                Image(systemName: self.iconName)
                     .font(.system(size: 60, weight: .bold))
                     .padding(.top, 15)
-                Text("Velocity")
+                Text(self.titleLabel)
                     .font(.system(size: 75))
                     .fontWeight(.black)
                     .padding(.bottom, 15)
@@ -66,7 +84,7 @@ struct ContentView: View {
                         })
                         .frame(width: 120,height: 30+20, alignment: .leading)
                         .font(.system(size: 30))
-                        .layoutPriority(/*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/)
+                        .layoutPriority(0)
                         .background(Color(red: 0.66, green: 0.66, blue: 0.66, opacity: 0.14))
                         .cornerRadius(10)
                         .keyboardType(.decimalPad)
