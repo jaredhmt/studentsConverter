@@ -67,6 +67,9 @@ struct ContentView: View {
                 if self.selectedMeasure == 0 {
                     velocityView()
                 }
+                else if self.selectedMeasure == 1 {
+                    volumeView()
+                }
                 else {
                     Spacer()
                 }

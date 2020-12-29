@@ -1,5 +1,5 @@
 //
-//  velocityView.swift
+//  volumeView.swift
 //  studentsConverter
 //
 //  Created by Jared Hale on 12/28/20.
@@ -8,21 +8,21 @@
 import Foundation
 import SwiftUI
 
-struct velocityView: View {
+struct volumeView: View {
     
     
-    let mph2mps = converStruct(5280 * 12 * 2.54 / 3600 / 100)
-    let fps2mps = converStruct(12 * 2.54 / 100)
-    let mps2mps = converStruct(1)
-    let kmph2mps = converStruct(1000 / 3600)
-    let knot2mps = converStruct(1852 / 3600)
+    let ml2met3 = converStruct(1 / 1000000)
+    let cm32met3 = converStruct(1 / 1000000)
+    let met32met3 = converStruct(1)
+    let gal2met3 = converStruct(231 * pow(2.54/100,3))
+    let ft32met3 = converStruct(pow(12*2.54/100,3))
     
     @State var inputVal:Float = 0.0
     @State var outputVal:Float = 0.0
     @State var userInput:String = "0"
     @State var selectedUnits = [0, 1]
     @State var baseVal:Float = 0.0
-    var units = ["miles per hour","feet per second","meters per second", "kilometers per hour","knots"]
+    var units = ["milileters","cubic centimeters","cubic meters", "US gallons","cubic feet"]
     
     var body: some View {
         VStack {
@@ -84,37 +84,37 @@ struct velocityView: View {
         // convert input to m/s
         let refIn = self.selectedUnits[0]
         if refIn == 0 {
-            self.baseVal = mph2mps.convert(Float(userInput)!)
+            self.baseVal = ml2met3.convert(Float(userInput)!)
         }
         else if refIn == 1 {
-            self.baseVal = fps2mps.convert(Float(userInput)!)
+            self.baseVal = cm32met3.convert(Float(userInput)!)
         }
         else if refIn == 2 {
-            self.baseVal = mps2mps.convert(Float(userInput)!)
+            self.baseVal = met32met3.convert(Float(userInput)!)
         }
         else if refIn == 3 {
-            self.baseVal = kmph2mps.convert(Float(userInput)!)
+            self.baseVal = gal2met3.convert(Float(userInput)!)
         }
         else if refIn == 4 {
-            self.baseVal = knot2mps.convert(Float(userInput)!)
+            self.baseVal = ft32met3.convert(Float(userInput)!)
         }
         
         // convert m/s to output
         let refOut = self.selectedUnits[1]
         if refOut == 0 {
-            self.outputVal = mph2mps.convert(self.baseVal,true)
+            self.outputVal = ml2met3.convert(self.baseVal,true)
         }
         else if refOut == 1 {
-            self.outputVal = fps2mps.convert(self.baseVal,true)
+            self.outputVal = cm32met3.convert(self.baseVal,true)
         }
         else if refOut == 2 {
-            self.outputVal = mps2mps.convert(self.baseVal,true)
+            self.outputVal = met32met3.convert(self.baseVal,true)
         }
         else if refOut == 3 {
-            self.outputVal = kmph2mps.convert(self.baseVal,true)
+            self.outputVal = gal2met3.convert(self.baseVal,true)
         }
         else if refOut == 4 {
-            self.outputVal = knot2mps.convert(self.baseVal,true)
+            self.outputVal = ft32met3.convert(self.baseVal,true)
         }
     }
 }
