@@ -6,7 +6,7 @@
         "units": [
             {"unit": "meters per second",
                 "enabled": true,
-                "convFactorStr": "1"
+                "convFactorStr": "1.0"
             },
             {"unit": "miles per hour",
                 "enabled": true,
@@ -18,11 +18,11 @@
             },
             {"unit": "kilometers per hour",
                 "enabled": true,
-                "convFactorStr": "1000 / 3600"
+                "convFactorStr": "1000 / 3600.0"
             },
             {"unit": "knots",
                 "enabled": true,
-                "convFactorStr": "1852 / 3600"
+                "convFactorStr": "1852 / 3600.0"
             }
         ]
     },
@@ -33,15 +33,15 @@
         "units": [
             {"unit": "meters cubed",
                 "enabled": true,
-                "convFactorStr": "1"
+                "convFactorStr": "1.0"
             },
             {"unit": "milimeters",
                 "enabled": true,
-                "convFactorStr": "1 / 1000000"
+                "convFactorStr": "1 / 1000000.0"
             },
             {"unit": "cubic centimeters",
                 "enabled": true,
-                "convFactorStr": "1 / 1000000"
+                "convFactorStr": "1 / 1000000.0"
             },
             {"unit": "cubic feet",
                 "enabled": true,
@@ -60,7 +60,23 @@
         "units": [
           {"unit": "custom 1",
             "enabled": true,
-            "convFactorStr": "1"
+            "convFactorStr": "1.0"
+          },
+          {"unit": "custom 2",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "custom 3",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "custom 4",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "custom 5",
+            "enabled": true,
+            "convFactorStr": "1000.0"
           }
         ]
     },
@@ -71,11 +87,23 @@
         "units": [
           {"unit": "kilograms",
             "enabled": true,
-            "convFactorStr": "1"
+            "convFactorStr": "1.0"
           },
           {"unit": "slugs",
             "enabled": true,
             "convFactorStr": "2.3"
+          },
+          {"unit": "pounds",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "newtons",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "grams",
+            "enabled": true,
+            "convFactorStr": "1000.0"
           }
         ]
     },
@@ -86,11 +114,23 @@
         "units": [
           {"unit": "pascals",
             "enabled": true,
-            "convFactorStr": "1"
+            "convFactorStr": "1.0"
           },
           {"unit": "kilopascals",
             "enabled": true,
-            "convFactorStr": "1000"
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "bars",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "atmospheres",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "megapascals",
+            "enabled": true,
+            "convFactorStr": "1000000.0"
           }
         ]
     },
@@ -105,7 +145,19 @@
           },
           {"unit": "square feet",
             "enabled": true,
-            "convFactorStr": "1000"
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "acres",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "hectares",
+            "enabled": true,
+            "convFactorStr": "1000.0"
+          },
+          {"unit": "square inches",
+            "enabled": true,
+            "convFactorStr": "1000.0"
           }
         ]
     }

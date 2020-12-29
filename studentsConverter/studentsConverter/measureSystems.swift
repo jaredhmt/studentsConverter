@@ -12,7 +12,7 @@ struct measureSystems: Codable {
     var name:String = ""
     var iconSF:String = ""
     var base:String = ""
-    var units:[unitsStruct]?
+    var units: [unitsStruct]
     
     
     

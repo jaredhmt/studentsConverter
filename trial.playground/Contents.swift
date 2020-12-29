@@ -45,24 +45,19 @@
 //
 //
 
+import SwiftUI
 
 
-struct converStruct {
-    var convFactor:Float = 0.0
-    func convert (inVal:Float, out:Bool = false) -> Float {
-        var output:Float = 0
-        if out {
-            output = inVal / convFactor
-        }
-        else {
-            output = inVal * convFactor
-        }
-        return output
+
+func stringConv(factorStr:String, initVal:Float, fromBase:Bool = false) -> Float {
+    let exp: NSExpression = NSExpression(format: factorStr)
+    let convFactor: Double = exp.expressionValue(with: nil, context: nil) as! Double
+    if fromBase {
+        return initVal / Float(convFactor)
+    }
+    else {
+        return initVal * Float(convFactor)
     }
 }
 
-var a:converStruct = converStruct()
-a.convFactor = 9
-
-print(a.convert(inVal:9))
-
+print(stringConv(factorStr: "254.0  * 100 / 3600", initVal: 1, fromBase: true))
