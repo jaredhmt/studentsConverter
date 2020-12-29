@@ -1,0 +1,68 @@
+{
+    "velocity": {
+        "name": "Velocity",
+        "iconSF": "hare",
+        "base": "meters per second",
+        "units": {
+            "meters per second": {
+                "enabled": true,
+                "convFactorStr": "1"
+            },
+            "miles per hour": {
+                "enabled": true,
+                "convFactorStr": "5280 * 12 * 2.54 / 3600 / 100"
+            },
+            "feet per second": {
+                "enabled": true,
+                "convFactorStr": "12 * 2.54 / 100"
+            },
+            "kilometers per hour": {
+                "enabled": true,
+                "convFactorStr": "1000 / 3600"
+            },
+            "knots": {
+                "enabled": true,
+                "convFactorStr": "1852 / 3600"
+            }
+        }
+    },
+    "volume": {
+        "name": "Volume",
+        "iconSF": "shippingbox",
+        "base": "meters cubed",
+        "units": {
+            "meters cubed": {
+                "enabled": true,
+                "convFactorStr": "1"
+            },
+            "milimeters": {
+                "enabled": true,
+                "convFactorStr": "1 / 1000000"
+            },
+            "cubic centimeters": {
+                "enabled": true,
+                "convFactorStr": "1 / 1000000"
+            },
+            "cubic feet": {
+                "enabled": true,
+                "convFactorStr": "(12 * 2.54 / 100) * (12 * 2.54 / 100) * (12 * 2.54 / 100)"
+            },
+            "US gallons": {
+                "enabled": true,
+                "convFactorStr": "231 * (2.54 / 100) * (2.54 / 100) * (2.54 / 100)"
+            }
+        }
+    },
+    "custom": {
+        "name": "Custom",
+        "iconSF": "square.and.pencil"
+    },
+    "mass": {
+        "name": "Mass",
+        "iconSF": "scalemass"
+    },
+    "pressure": {
+        "name": "Pressure",
+        "iconSF": "gauge"
+    }
+}
