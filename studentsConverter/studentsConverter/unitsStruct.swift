@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct unitsStruct: Codable {
+struct unitsStruct: Identifiable,Codable {
     
+    var id:Int = 0
     var unit:String = ""
     var enabled:Bool = true
     var convFactorStr = ""

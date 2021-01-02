@@ -7,13 +7,12 @@
 
 import Foundation
 
-struct measureSystems: Codable {
+struct measureSystems: Identifiable,Codable {
     
+    var id:Int = 0
     var name:String = ""
     var iconSF:String = ""
     var base:String = ""
     var units: [unitsStruct]
-    
-    
     
 }

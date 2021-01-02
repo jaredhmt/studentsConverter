@@ -1,164 +1,224 @@
 [
     {
+        "id": 1,
         "name": "Velocity",
         "iconSF": "hare",
         "base": "meters per second",
         "units": [
-            {"unit": "meters per second",
+            {
+                "id": 101,
+                "unit": "meters per second",
                 "enabled": true,
                 "convFactorStr": "1.0"
             },
-            {"unit": "miles per hour",
+            {
+                "id": 102,
+                "unit": "miles per hour",
                 "enabled": true,
                 "convFactorStr": "5280 * 12 * 2.54 / 3600 / 100"
             },
-            {"unit": "feet per second",
+            {
+                "id": 103,
+                "unit": "feet per second",
                 "enabled": true,
                 "convFactorStr": "12 * 2.54 / 100"
             },
-            {"unit": "kilometers per hour",
+            {
+                "id": 104,
+                "unit": "kilometers per hour",
                 "enabled": true,
                 "convFactorStr": "1000 / 3600.0"
             },
-            {"unit": "knots",
+            {
+                "id": 105,
+                "unit": "knots",
+                "enabled": true,
+                "convFactorStr": "1852 / 3600.0"
+            },
+            {
+                "id": 106,
+                "unit": "custom",
                 "enabled": true,
                 "convFactorStr": "1852 / 3600.0"
             }
         ]
     },
     {
+        "id": 2,
         "name": "Volume",
         "iconSF": "shippingbox",
         "base": "meters cubed",
         "units": [
-            {"unit": "meters cubed",
+            {
+                "id": 201,
+                "unit": "meters cubed",
                 "enabled": true,
                 "convFactorStr": "1.0"
             },
-            {"unit": "milimeters",
+            {
+                "id": 202,
+                "unit": "milimeters",
                 "enabled": true,
                 "convFactorStr": "1 / 1000000.0"
             },
-            {"unit": "cubic centimeters",
+            {
+                "id": 203,
+                "unit": "cubic centimeters",
                 "enabled": true,
                 "convFactorStr": "1 / 1000000.0"
             },
-            {"unit": "cubic feet",
+            {
+                "id": 204,
+                "unit": "cubic feet",
                 "enabled": true,
                 "convFactorStr": "(12 * 2.54 / 100) * (12 * 2.54 / 100) * (12 * 2.54 / 100)"
             },
-            {"unit": "US gallons",
+            {
+                "id": 205,
+                "unit": "US gallons",
                 "enabled": true,
                 "convFactorStr": "231 * (2.54 / 100) * (2.54 / 100) * (2.54 / 100)"
             }
         ]
     },
     {
+        "id": 3,
         "name": "Custom",
         "iconSF": "square.and.pencil",
         "base": "none",
         "units": [
-          {"unit": "custom 1",
-            "enabled": true,
-            "convFactorStr": "1.0"
-          },
-          {"unit": "custom 2",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "custom 3",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "custom 4",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "custom 5",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          }
+            {
+                "id": 301,
+                "unit": "pascal second",
+                "enabled": true,
+                "convFactorStr": "1.0"
+            },
+            {
+                "id": 302,
+                "unit": "centipoise",
+                "enabled": true,
+                "convFactorStr": "0.001"
+            },
+            {
+                "id": 303,
+                "unit": "pound per foot hour",
+                "enabled": true,
+                "convFactorStr": "0.00041337887"
+            }
         ]
     },
     {
+        "id": 4,
         "name": "Mass",
         "iconSF": "scalemass",
         "base": "kilograms",
         "units": [
-          {"unit": "kilograms",
-            "enabled": true,
-            "convFactorStr": "1.0"
-          },
-          {"unit": "slugs",
-            "enabled": true,
-            "convFactorStr": "2.3"
-          },
-          {"unit": "pounds",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "newtons",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "grams",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          }
+            {
+                "id": 401,
+                "unit": "kilograms",
+                "enabled": true,
+                "convFactorStr": "1.0"
+            },
+            {
+                "id": 402,
+                "unit": "slugs",
+                "enabled": true,
+                "convFactorStr": "14.59390"
+            },
+            {
+                "id": 403,
+                "unit": "pounds",
+                "enabled": true,
+                "convFactorStr": "0.45359237"
+            },
+            {
+                "id": 404,
+                "unit": "newtons",
+                "enabled": true,
+                "convFactorStr": "9.80665"
+            },
+            {
+                "id": 405,
+                "unit": "grams",
+                "enabled": true,
+                "convFactorStr": "1000.0"
+            }
         ]
     },
     {
+        "id": 5,
         "name": "Pressure",
         "iconSF": "gauge",
         "base": "pascals",
         "units": [
-          {"unit": "pascals",
-            "enabled": true,
-            "convFactorStr": "1.0"
-          },
-          {"unit": "kilopascals",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "bars",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "atmospheres",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "megapascals",
-            "enabled": true,
-            "convFactorStr": "1000000.0"
-          }
+            {
+                "id": 501,
+                "unit": "pascals",
+                "enabled": true,
+                "convFactorStr": "1.0"
+            },
+            {
+                "id": 502,
+                "unit": "kilopascals",
+                "enabled": true,
+                "convFactorStr": "1000.0"
+            },
+            {
+                "id": 503,
+                "unit": "bars",
+                "enabled": true,
+                "convFactorStr": "100000.0"
+            },
+            {
+                "id": 504,
+                "unit": "atmospheres",
+                "enabled": true,
+                "convFactorStr": "101325.0"
+            },
+            {
+                "id": 505,
+                "unit": "megapascals",
+                "enabled": true,
+                "convFactorStr": "1000000.0"
+            }
         ]
     },
     {
+        "id": 6,
         "name": "Area",
         "iconSF": "rectangle",
         "base": "square meters",
         "units": [
-          {"unit": "square meters",
-            "enabled": true,
-            "convFactorStr": "1"
-          },
-          {"unit": "square feet",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "acres",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "hectares",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          },
-          {"unit": "square inches",
-            "enabled": true,
-            "convFactorStr": "1000.0"
-          }
+            {
+                "id": 601,
+                "unit": "square meters",
+                "enabled": true,
+                "convFactorStr": "1"
+            },
+            {
+                "id": 602,
+                "unit": "square feet",
+                "enabled": true,
+                "convFactorStr": "(12 * 2.54 / 100) * (12 * 2.54 / 100)"
+            },
+            {
+                "id": 603,
+                "unit": "acres",
+                "enabled": true,
+                "convFactorStr": "43560 * (12 * 2.54 / 100) * (12 * 2.54 / 100)"
+            },
+            {
+                "id": 604,
+                "unit": "hectares",
+                "enabled": true,
+                "convFactorStr": "10000.0"
+            },
+            {
+                "id": 605,
+                "unit": "square inches",
+                "enabled": true,
+                "convFactorStr": "(2.54 / 100) * (2.54 / 100)"
+            }
         ]
     }
 ]
