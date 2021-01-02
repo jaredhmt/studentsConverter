@@ -29,17 +29,64 @@ struct converStruct {
 
 struct ContentView: View {
     
+    @State var show = false
     
     
     var body: some View {
-        ConvertView()
+        ZStack{
+//            (self.show ? Color.gray.opacity(0.5) : Color.clear).edgesIgnoringSafeArea(.all)
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            self.show.toggle()
+                        }
+                    }) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 25))
+                            .padding([.top, .trailing])
+                            .foregroundColor(.primary)
+                    }
+                }
+                Spacer()
+            }
+            .opacity(self.show ? 1 : 0)
+            
+            VStack {
+                Text("MENU")
+                    .padding(.top, 50)
+                    .padding(.bottom, 25)
+                    .font(.title)
+                HStack{
+                    VStack (alignment: .leading, spacing: 20){
+                        Text("Manage Custom Units")
+                        Text("Manage Displayed Measurement Types")
+                        Text("Some Setting0")
+                        Text("Some Setting1")
+                        Text("Some Setting2")
+                    }
+                    Spacer()
+                }
+                Spacer()
+            }
+            .opacity(self.show ? 1 : 0)
+            .padding(.leading, 15)
+            
+            ZStack {
+                ConvertView(show: self.$show)
+                
+            }
+            .cornerRadius(self.show ? 15 : 0)
+            .scaleEffect(self.show ? 0.8 : 1)
+            .offset(x: self.show ? 175 : 0, y: self.show ? 50 : 0)
+        }
+        .ignoresSafeArea(edges: .all)
+        
     }
     
     
 }
-
-
-
 
 func stringConv(_ inFactorStr:String, _ outFactorStr:String, _ initVal:Float) -> Float {
     let exp: NSExpression = NSExpression(format: inFactorStr)

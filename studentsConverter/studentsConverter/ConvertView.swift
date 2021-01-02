@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ConvertView : View {
     
+    @Binding var show : Bool
+    
     let configData: [measureSystems] = Bundle.main.decode("unitSetup.json")
     
     @State var outputVal:Float = 0.0
@@ -35,10 +37,16 @@ struct ConvertView : View {
             VStack{
                 HStack{
                     Spacer()
-                    Image(systemName: "gearshape")
-                        .font(.system(size: 25))
-                        .padding(.top, 5)
-                        .padding(.trailing)
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            self.show.toggle()
+                        }
+                    }) {
+                        Image(systemName: "gearshape")
+                            .font(.system(size: 25))
+                            .padding([.top, .trailing])
+                            .foregroundColor(.primary)
+                    }
                 }
                 Spacer()
                 Picker(selection: $selectedMeasure, label: Text("Selected Measure")) {
@@ -131,7 +139,7 @@ struct ConvertView : View {
                 }
             }
             
-        }
+        }.background(self.show ? Color.secondary : Color.clear)
         
     }
     
@@ -145,8 +153,8 @@ struct ConvertView : View {
     }
 }
 
-struct ConvertView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConvertView()
-    }
-}
+//struct ConvertView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ConvertView(show: $ContentView.show)
+//    }
+//}
