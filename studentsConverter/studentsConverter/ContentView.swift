@@ -53,6 +53,13 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack{
+                HStack{
+                    Spacer()
+                    Image(systemName: "gearshape")
+                        .font(.system(size: 25))
+                        .padding(.top, 5)
+                        .padding(.trailing)
+                }
                 Spacer()
                 Picker(selection: $selectedMeasure, label: Text("Selected Measure")) {
                     ForEach(0 ..< configData.count) {
