@@ -11,6 +11,7 @@
 		0B5C8A14259B3B7800759250 /* unitSetup.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B5C8A13259B3B7700759250 /* unitSetup.json */; };
 		0B5C8A17259B3C1E00759250 /* measureSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5C8A16259B3C1E00759250 /* measureSystems.swift */; };
 		0B5C8A1A259B3F9A00759250 /* unitsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5C8A19259B3F9A00759250 /* unitsStruct.swift */; };
+		0B7F15B125A3A0810063B431 /* UnitManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F15B025A3A0810063B431 /* UnitManagerView.swift */; };
 		0B82C8B7258608A20030FCF5 /* studentsConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B82C8B6258608A20030FCF5 /* studentsConverterApp.swift */; };
 		0B82C8B9258608A20030FCF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B82C8B8258608A20030FCF5 /* ContentView.swift */; };
 		0B82C8BB258608A30030FCF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B82C8BA258608A30030FCF5 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		0B5C8A13259B3B7700759250 /* unitSetup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unitSetup.json; sourceTree = "<group>"; };
 		0B5C8A16259B3C1E00759250 /* measureSystems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = measureSystems.swift; sourceTree = "<group>"; };
 		0B5C8A19259B3F9A00759250 /* unitsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitsStruct.swift; sourceTree = "<group>"; };
+		0B7F15B025A3A0810063B431 /* UnitManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitManagerView.swift; sourceTree = "<group>"; };
 		0B82C8B3258608A20030FCF5 /* studentsConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studentsConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B82C8B6258608A20030FCF5 /* studentsConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentsConverterApp.swift; sourceTree = "<group>"; };
 		0B82C8B8258608A20030FCF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				0B82C8B6258608A20030FCF5 /* studentsConverterApp.swift */,
 				0B82C8B8258608A20030FCF5 /* ContentView.swift */,
 				0BDD546C25A04DA50070CFFD /* ConvertView.swift */,
+				0B7F15B025A3A0810063B431 /* UnitManagerView.swift */,
 				0BDD547225A066D90070CFFD /* customUnitEditorView.swift */,
 				0B000032259ADDC600B31380 /* convFuncs.swift */,
 				0B5C8A13259B3B7700759250 /* unitSetup.json */,
@@ -162,6 +165,7 @@
 			files = (
 				0B82C8B9258608A20030FCF5 /* ContentView.swift in Sources */,
 				0B82C8B7258608A20030FCF5 /* studentsConverterApp.swift in Sources */,
+				0B7F15B125A3A0810063B431 /* UnitManagerView.swift in Sources */,
 				0BDD547325A066D90070CFFD /* customUnitEditorView.swift in Sources */,
 				0BB445CD259B4B90008B391E /* templateView.swift in Sources */,
 				0BDD546D25A04DA50070CFFD /* ConvertView.swift in Sources */,

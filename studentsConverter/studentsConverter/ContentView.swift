@@ -39,7 +39,7 @@ struct ContentView: View {
                                         menuElement(menuTxt: "Manage Custom Units")
                                     }
                                     .foregroundColor(.primary)
-                                    NavigationLink(destination: Text("Manage Displayed Units").navigationBarTitle("Units Manager", displayMode: .inline), isActive: $menuItem2) {
+                                    NavigationLink(destination: UnitManagerView().navigationBarTitle("Units Manager", displayMode: .inline), isActive: $menuItem2) {
                                         menuElement(menuTxt: "Manage Displayed Units")
                                     }
                                     .foregroundColor(.primary)
@@ -51,8 +51,8 @@ struct ContentView: View {
                                         menuElement(menuTxt: "Some Setting1")
                                     }
                                     .foregroundColor(.primary)
-                                    NavigationLink(destination: Text("Some Setting2").navigationBarTitle("Setting2", displayMode: .inline), isActive: $menuItem5) {
-                                        menuElement(menuTxt: "Some Setting2")
+                                    NavigationLink(destination: Text("Choose Color Scheme").navigationBarTitle("Accent Color Picker", displayMode: .inline), isActive: $menuItem5) {
+                                        menuElement(menuTxt: "Accent Color Picker")
                                     }
                                     .foregroundColor(.primary)
                                 }.padding(.top, 10)
@@ -64,6 +64,7 @@ struct ContentView: View {
                     }.navigationBarTitle("Menu")
                     .background(Color.clear)
                 }
+                .ignoresSafeArea(edges: .all)
                 .background(Color.clear)
                 VStack {
                     HStack {
@@ -79,8 +80,11 @@ struct ContentView: View {
                             }
                         }) {
                             Image(systemName: "xmark")
-                                .font(.system(size: 25))
-                                .padding([.top, .trailing])
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                //                                .font(.system(size: 25))
+                                .padding(.trailing)
+                                .padding(.top, 5)
                                 .foregroundColor(.primary)
                         }
                         //.opacity((self.show && !self.inMenuNavigator) ? 1 : 0)
@@ -101,7 +105,6 @@ struct ContentView: View {
             .offset(x: self.show ? 175 : 0, y: self.show ? 50 : 0)
             .opacity(withAnimation(.spring()) {self.inMenuNavigator ? 0 : 1})
         }
-        .ignoresSafeArea(edges: .all)
         
     }
     

@@ -43,8 +43,11 @@ struct ConvertView : View {
                         }
                     }) {
                         Image(systemName: "gearshape")
-                            .font(.system(size: 25))
-                            .padding([.top, .trailing])
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            // .font(.system(size: 25))
+                            .padding(.trailing)
+                            .padding(.top,5)
                             .foregroundColor(.primary)
                     }
                 }
@@ -94,7 +97,10 @@ struct ConvertView : View {
                         }//.padding(.trailing,1)
                         Picker(selection: $selectedUnits[0], label: Text("Input Units")) {
                             ForEach(0 ..< unitCounts, id: \.self) {
+                                if configData[self.selectedMeasure].units[$0].enabled {
                                 Text(configData[self.selectedMeasure].units[$0].unit)
+                                }
+                                else{ EmptyView()}
                             }
                         }
                         .frame(width: 220)
@@ -118,7 +124,10 @@ struct ConvertView : View {
                         }
                         Picker(selection: $selectedUnits[1], label: Text("Input Units")) {
                             ForEach(0 ..< unitCounts, id: \.self) {
+                                if configData[self.selectedMeasure].units[$0].enabled {
                                 Text(configData[self.selectedMeasure].units[$0].unit)
+                                }
+                                else{ EmptyView()}
                             }
                         }
                         .frame(width: 220)
