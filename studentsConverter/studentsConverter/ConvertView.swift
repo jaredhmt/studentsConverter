@@ -88,7 +88,7 @@ struct ConvertView : View {
                             .frame(width: 120,height: 30+20, alignment: .leading)
                             .font(.system(size: 30))
                             .layoutPriority(0)
-                            .background(Color(red: 0.66, green: 0.66, blue: 0.66, opacity: 0.12))
+                            .background(Color.secondary.opacity(0.5))
                             .cornerRadius(10)
                             .keyboardType(.decimalPad)
                         }//.padding(.trailing,1)
