@@ -13,7 +13,6 @@ import Foundation
 struct ContentView: View {
     
     @State var show = false
-    @State private var inMenuNav = false
     @State private var menuItem1 = false
     @State private var menuItem2 = false
     @State private var menuItem3 = false
@@ -21,7 +20,7 @@ struct ContentView: View {
     @State private var menuItem5 = false
     
     var inMenuNavigator: Bool {
-        inMenuNav || menuItem1 || menuItem2 || menuItem3 || menuItem4 || menuItem5
+        menuItem1 || menuItem2 || menuItem3 || menuItem4 || menuItem5
     }
     
     
@@ -72,7 +71,11 @@ struct ContentView: View {
                         Button(action: {
                             withAnimation(.spring()) {
                                 self.show.toggle()
-                                self.inMenuNav = false
+                                self.menuItem1 = false
+                                self.menuItem2 = false
+                                self.menuItem3 = false
+                                self.menuItem4 = false
+                                self.menuItem5 = false
                             }
                         }) {
                             Image(systemName: "xmark")
@@ -80,6 +83,7 @@ struct ContentView: View {
                                 .padding([.top, .trailing])
                                 .foregroundColor(.primary)
                         }
+                        //.opacity((self.show && !self.inMenuNavigator) ? 1 : 0)
                     }
                     Spacer()
                 }
