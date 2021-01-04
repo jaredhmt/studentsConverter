@@ -27,5 +27,23 @@ extension Bundle{
 }
 // END JSON Decoding
 
+// Conversion Structure Setup
+struct converStruct {
+    var convFactor:Float = 0.0
+    init(_ a:Float) {
+        convFactor = a
+    }
+    func convert (_ inVal:Float, _ out:Bool = false) -> Float {
+        var output:Float = 0
+        if out {
+            output = inVal / convFactor
+        }
+        else {
+            output = inVal * convFactor
+        }
+        return output
+    }
+}
 
+// End Conversion Structure Setup
 

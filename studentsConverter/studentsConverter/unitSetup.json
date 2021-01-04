@@ -135,13 +135,13 @@
                 "id": 404,
                 "unit": "newtons",
                 "enabled": true,
-                "convFactorStr": "9.80665"
+                "convFactorStr": "1 / 9.80665"
             },
             {
                 "id": 405,
                 "unit": "grams",
                 "enabled": true,
-                "convFactorStr": "1000.0"
+                "convFactorStr": "1 / 1000.0"
             }
         ]
     },

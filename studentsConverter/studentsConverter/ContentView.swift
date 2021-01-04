@@ -10,23 +10,6 @@ import SwiftUI
 import Foundation
 
 
-struct converStruct {
-    var convFactor:Float = 0.0
-    init(_ a:Float) {
-        convFactor = a
-    }
-    func convert (_ inVal:Float, _ out:Bool = false) -> Float {
-        var output:Float = 0
-        if out {
-            output = inVal / convFactor
-        }
-        else {
-            output = inVal * convFactor
-        }
-        return output
-    }
-}
-
 struct ContentView: View {
     
     @State var show = false
@@ -34,45 +17,6 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-//            (self.show ? Color.gray.opacity(0.5) : Color.clear).edgesIgnoringSafeArea(.all)
-            VStack {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            self.show.toggle()
-                        }
-                    }) {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 25))
-                            .padding([.top, .trailing])
-                            .foregroundColor(.primary)
-                    }
-                }
-                Spacer()
-            }
-            .opacity(self.show ? 1 : 0)
-            
-            VStack {
-                Text("MENU")
-                    .padding(.top, 50)
-                    .padding(.bottom, 25)
-                    .font(.title)
-                HStack{
-                    VStack (alignment: .leading, spacing: 20){
-                        Text("Manage Custom Units")
-                        Text("Manage Displayed Measurement Types")
-                        Text("Some Setting0")
-                        Text("Some Setting1")
-                        Text("Some Setting2")
-                    }
-                    Spacer()
-                }
-                Spacer()
-            }
-            .opacity(self.show ? 1 : 0)
-            .padding(.leading, 15)
-            
             ZStack {
                 ConvertView(show: self.$show)
                 
@@ -80,6 +24,65 @@ struct ContentView: View {
             .cornerRadius(self.show ? 15 : 0)
             .scaleEffect(self.show ? 0.8 : 1)
             .offset(x: self.show ? 175 : 0, y: self.show ? 50 : 0)
+            
+            ZStack{
+                
+                NavigationView{
+                    ZStack{
+                        
+                        VStack {
+                            HStack{
+                                VStack (alignment: .leading, spacing: 20){
+                                    NavigationLink(destination: customUnitEditorView()) {
+                                        Text("Manage Custom Units")
+                                    }
+                                    .foregroundColor(.primary)
+                                    NavigationLink(destination: customUnitEditorView()) {
+                                        Text("Manage Displayed Units")
+                                    }
+                                    .foregroundColor(.primary)
+                                    NavigationLink(destination: customUnitEditorView()) {
+                                        Text("Some Setting0")
+                                    }
+                                    .foregroundColor(.primary)
+                                    NavigationLink(destination: customUnitEditorView()) {
+                                        Text("Some Setting1")
+                                    }
+                                    .foregroundColor(.primary)
+                                    NavigationLink(destination: customUnitEditorView()) {
+                                        Text("Some Setting2")
+                                    }
+                                    .foregroundColor(.primary)
+                                }
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                        .padding(.leading, 15)
+                    }.navigationBarTitle("Menu")
+                }
+                .background(Color.clear)
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.spring()) {
+                                self.show.toggle()
+                            }
+                        }) {
+                            Image(systemName: "xmark")
+                                .font(.system(size: 25))
+                                .padding([.top, .trailing])
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    Spacer()
+                }
+                .background(Color.clear)
+            }
+            .background(Color.clear)
+            .opacity(self.show ? 1 : 0)
+            
         }
         .ignoresSafeArea(edges: .all)
         

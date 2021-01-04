@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B000030259ADC2B00B31380 /* velocityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B00002F259ADC2B00B31380 /* velocityView.swift */; };
 		0B000033259ADDC600B31380 /* convFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B000032259ADDC600B31380 /* convFuncs.swift */; };
-		0B000036259AFAC600B31380 /* volumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B000035259AFAC600B31380 /* volumeView.swift */; };
 		0B5C8A14259B3B7800759250 /* unitSetup.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B5C8A13259B3B7700759250 /* unitSetup.json */; };
 		0B5C8A17259B3C1E00759250 /* measureSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5C8A16259B3C1E00759250 /* measureSystems.swift */; };
 		0B5C8A1A259B3F9A00759250 /* unitsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5C8A19259B3F9A00759250 /* unitsStruct.swift */; };
@@ -19,12 +17,11 @@
 		0B82C8BE258608A30030FCF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B82C8BD258608A30030FCF5 /* Preview Assets.xcassets */; };
 		0BB445CD259B4B90008B391E /* templateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB445CC259B4B90008B391E /* templateView.swift */; };
 		0BDD546D25A04DA50070CFFD /* ConvertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD546C25A04DA50070CFFD /* ConvertView.swift */; };
+		0BDD547325A066D90070CFFD /* customUnitEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDD547225A066D90070CFFD /* customUnitEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B00002F259ADC2B00B31380 /* velocityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = velocityView.swift; sourceTree = "<group>"; };
 		0B000032259ADDC600B31380 /* convFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convFuncs.swift; sourceTree = "<group>"; };
-		0B000035259AFAC600B31380 /* volumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = volumeView.swift; sourceTree = "<group>"; };
 		0B5C8A13259B3B7700759250 /* unitSetup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unitSetup.json; sourceTree = "<group>"; };
 		0B5C8A16259B3C1E00759250 /* measureSystems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = measureSystems.swift; sourceTree = "<group>"; };
 		0B5C8A19259B3F9A00759250 /* unitsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unitsStruct.swift; sourceTree = "<group>"; };
@@ -36,6 +33,7 @@
 		0B82C8BF258608A30030FCF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BB445CC259B4B90008B391E /* templateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = templateView.swift; sourceTree = "<group>"; };
 		0BDD546C25A04DA50070CFFD /* ConvertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertView.swift; sourceTree = "<group>"; };
+		0BDD547225A066D90070CFFD /* customUnitEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customUnitEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +66,12 @@
 		0B82C8B5258608A20030FCF5 /* studentsConverter */ = {
 			isa = PBXGroup;
 			children = (
-				0B5C8A13259B3B7700759250 /* unitSetup.json */,
 				0B82C8B6258608A20030FCF5 /* studentsConverterApp.swift */,
 				0B82C8B8258608A20030FCF5 /* ContentView.swift */,
 				0BDD546C25A04DA50070CFFD /* ConvertView.swift */,
+				0BDD547225A066D90070CFFD /* customUnitEditorView.swift */,
 				0B000032259ADDC600B31380 /* convFuncs.swift */,
-				0B00002F259ADC2B00B31380 /* velocityView.swift */,
-				0B000035259AFAC600B31380 /* volumeView.swift */,
+				0B5C8A13259B3B7700759250 /* unitSetup.json */,
 				0B82C8BA258608A30030FCF5 /* Assets.xcassets */,
 				0B82C8BF258608A30030FCF5 /* Info.plist */,
 				0B82C8BC258608A30030FCF5 /* Preview Content */,
@@ -163,10 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B000030259ADC2B00B31380 /* velocityView.swift in Sources */,
 				0B82C8B9258608A20030FCF5 /* ContentView.swift in Sources */,
-				0B000036259AFAC600B31380 /* volumeView.swift in Sources */,
 				0B82C8B7258608A20030FCF5 /* studentsConverterApp.swift in Sources */,
+				0BDD547325A066D90070CFFD /* customUnitEditorView.swift in Sources */,
 				0BB445CD259B4B90008B391E /* templateView.swift in Sources */,
 				0BDD546D25A04DA50070CFFD /* ConvertView.swift in Sources */,
 				0B000033259ADDC600B31380 /* convFuncs.swift in Sources */,
