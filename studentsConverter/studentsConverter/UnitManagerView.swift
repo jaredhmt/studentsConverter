@@ -21,9 +21,30 @@ struct UnitManagerView: View {
             ForEach(0 ..< measureCount) { i in
                 Section(header: Text(self.configData[i].name)) {
                     ForEach(0 ..< self.configData[i].units.count){j in
-                        Text(self.configData[i].units[j].unit)
+                        selectedRow(listUnit: self.configData[i].units[j])
                     }
                 }
+            }
+        }
+    }
+}
+
+struct selectedRow: View {
+    
+    var listUnit: unitsStruct
+//    @Binding var selectedItems: Set<UUID>
+    
+    var isSelected: Bool {
+        listUnit.enabled
+    }
+    
+    var body: some View {
+        HStack {
+            Text(self.listUnit.unit)
+            Spacer()
+            if self.isSelected {
+                Image(systemName: "checkmark")
+                    .foregroundColor(Color.accentColor)
             }
         }
     }
