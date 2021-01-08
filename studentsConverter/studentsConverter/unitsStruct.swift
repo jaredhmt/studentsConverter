@@ -13,5 +13,5 @@ struct unitsStruct: Identifiable,Codable {
     var unit:String = ""
     var enabled:Bool = true
     var convFactorStr = ""
-    
+    let refID = UUID()
 }

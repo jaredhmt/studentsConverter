@@ -21,7 +21,7 @@ struct UnitManagerView: View {
             ForEach(0 ..< measureCount) { i in
                 Section(header: Text(self.configData[i].name)) {
                     ForEach(0 ..< self.configData[i].units.count){j in
-                        selectedRow(listUnit: self.configData[i].units[j])
+                        selectedRow(listUnit: self.configData[i].units[j], selectedItems: self.$selectedRows)
                     }
                 }
             }
@@ -32,10 +32,18 @@ struct UnitManagerView: View {
 struct selectedRow: View {
     
     var listUnit: unitsStruct
-//    @Binding var selectedItems: Set<UUID>
+    @Binding var selectedItems: Set<UUID>
+    
+//    init(listUnit: unitsStruct, selectedItems: Binding<Set<UUID>>) {
+//        self.listUnit = listUnit
+//        self._selectedItems = selectedItems
+//        if self.listUnit.enabled {
+//            self.selectedItems.insert(self.listUnit.refID)
+//        }
+//    }
     
     var isSelected: Bool {
-        listUnit.enabled
+        selectedItems.contains(listUnit.refID)
     }
     
     var body: some View {
@@ -47,7 +55,16 @@ struct selectedRow: View {
                     .foregroundColor(Color.accentColor)
             }
         }
+        .onTapGesture {
+            if self.isSelected {
+                self.selectedItems.remove(self.listUnit.refID)
+            }
+            else {
+                self.selectedItems.insert(self.listUnit.refID)
+            }
+        }
     }
+    
 }
 
 struct UnitManagerView_Previews: PreviewProvider {
