@@ -29,21 +29,39 @@ struct UnitManagerView: View {
     }
 }
 
+//struct listManager {
+//    var listUnit: unitsStruct
+//    @Binding var selectedRows: Set<UUID>
+//
+//    func myCustomFunction() {
+//        ForEach(0 ..< self.configData.count) { i in
+//            Section(header: Text(self.configData[i].name)) {
+//                ForEach(0 ..< self.configData[i].units.count){j in
+//                    if self.configData[i].units[j].enabled {
+//                        self.selectedRows.insert(self.listUnit.id)
+//                    }
+//
+//                }
+//            }
+//        }
+//    }
+//}
+
 struct selectedRow: View {
     
     var listUnit: unitsStruct
     @Binding var selectedItems: Set<UUID>
     
-//    init(listUnit: unitsStruct, selectedItems: Binding<Set<UUID>>) {
-//        self.listUnit = listUnit
-//        self._selectedItems = selectedItems
-//        if self.listUnit.enabled {
-//            self.selectedItems.insert(self.listUnit.refID)
-//        }
-//    }
+    //    init(listUnit: unitsStruct, selectedItems: Binding<Set<UUID>>) {
+    //        self.listUnit = listUnit
+    //        self._selectedItems = selectedItems
+    //        if self.listUnit.enabled {
+    //            self.selectedItems.insert(self.listUnit.id)
+    //        }
+    //    }
     
     var isSelected: Bool {
-        selectedItems.contains(listUnit.refID)
+        selectedItems.contains(listUnit.id)
     }
     
     var body: some View {
@@ -56,15 +74,18 @@ struct selectedRow: View {
             }
         }
         .onTapGesture {
-            if self.isSelected {
-                self.selectedItems.remove(self.listUnit.refID)
-            }
-            else {
-                self.selectedItems.insert(self.listUnit.refID)
-            }
+            desiredTapGesture()
         }
     }
     
+    func desiredTapGesture() {
+        if self.isSelected {
+            self.selectedItems.remove(self.listUnit.id)
+        }
+        else {
+            self.selectedItems.insert(self.listUnit.id)
+        }
+    }
 }
 
 struct UnitManagerView_Previews: PreviewProvider {

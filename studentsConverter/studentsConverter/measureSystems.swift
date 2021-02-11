@@ -9,7 +9,7 @@ import Foundation
 
 struct measureSystems: Identifiable,Codable {
     
-    var id:Int = 0
+    let id = UUID()
     var name:String = ""
     var iconSF:String = ""
     var base:String = ""

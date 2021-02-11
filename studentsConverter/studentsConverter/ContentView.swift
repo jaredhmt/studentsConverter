@@ -43,15 +43,19 @@ struct ContentView: View {
                                         menuElement(menuTxt: "Manage Displayed Units")
                                     }
                                     .foregroundColor(.primary)
-                                    NavigationLink(destination: Text("Some Setting0").navigationBarTitle("Setting0", displayMode: .inline), isActive: $menuItem3) {
-                                        menuElement(menuTxt: "Some Setting0")
+                                    NavigationLink(destination: SIPrefixesView().navigationBarTitle("SI Prefixes", displayMode: .inline), isActive: $menuItem3) {
+                                        menuElement(menuTxt: "SI Prefixes")
                                     }
                                     .foregroundColor(.primary)
                                     NavigationLink(destination: Text("Some Setting1").navigationBarTitle("Setting1", displayMode: .inline), isActive: $menuItem4) {
                                         menuElement(menuTxt: "Some Setting1")
                                     }
                                     .foregroundColor(.primary)
-                                    NavigationLink(destination: Text("Choose Color Scheme").navigationBarTitle("Accent Color Picker", displayMode: .inline), isActive: $menuItem5) {
+                                    NavigationLink(destination: VStack{
+                                        ColorPicker("ColorPicker", selection: /*@START_MENU_TOKEN@*/.constant(.red)/*@END_MENU_TOKEN@*/)
+                                        Text("Choose Color Scheme")
+                                        
+                                    }.navigationBarTitle("Accent Color Picker", displayMode: .inline), isActive: $menuItem5) {
                                         menuElement(menuTxt: "Accent Color Picker")
                                     }
                                     .foregroundColor(.primary)

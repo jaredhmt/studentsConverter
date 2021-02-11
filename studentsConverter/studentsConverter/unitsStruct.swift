@@ -9,9 +9,10 @@ import Foundation
 
 struct unitsStruct: Identifiable,Codable {
     
-    var id:Int = 0
+//    var id:Int = 0
+    let id = UUID()
     var unit:String = ""
     var enabled:Bool = true
     var convFactorStr = ""
-    let refID = UUID()
+//    let refID = UUID()
 }
